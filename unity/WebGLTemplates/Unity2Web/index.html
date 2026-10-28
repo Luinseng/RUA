@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+  <title>{{{ PRODUCT_NAME }}}</title>
+  <style>
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #000; }
+    #unity-canvas { display: block; width: 100%; height: 100%; background: #000; outline: none; }
+    #u2w-loading { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 14px; color: #ddd; font: 14px system-ui, sans-serif; background: #000; }
+    #u2w-bar { width: min(420px, 70vw); height: 6px; background: #222; border-radius: 3px; overflow: hidden; }
+    #u2w-fill { width: 0; height: 100%; background: #6cf; transition: width .2s; }
+    #u2w-error { position: fixed; left: 12px; right: 12px; bottom: 12px; padding: 10px 14px; border-radius: 6px; display: none;
+      font: 13px ui-monospace, monospace; white-space: pre-wrap; color: #fff; background: rgba(160, 30, 30, .92); max-height: 40vh; overflow: auto; }
+    #u2w-fullscreen { position: fixed; right: 10px; top: 10px; padding: 6px 10px; border: 0; border-radius: 4px; cursor: pointer;
+      font: 12px system-ui, sans-serif; color: #fff; background: rgba(255, 255, 255, .12); opacity: .35; }
+    #u2w-fullscreen:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+  <canvas id="unity-canvas" tabindex="-1"></canvas>
+  <div id="u2w-loading"><div>{{{ PRODUCT_NAME }}}</div><div id="u2w-bar"><div id="u2w-fill"></div></div><div id="u2w-status">Loading…</div></div>
+  <button id="u2w-fullscreen" title="Fullscreen (keyboard lock)">⛶</button>
+  <div id="u2w-error"></div>
+  <script src="Build/{{{ LOADER_FILENAME }}}"></script>
+  <script>
+    var canvas = document.getElementById("unity-canvas");
+    var errorBox = document.getElementById("u2w-error");
+
+    function showMessage(message, type) {
+      if (type === "warning") { console.warn(message); return; }
+      errorBox.style.display = "block";
+      errorBox.textContent += message + "\n";
+    }
+
+    var config = {
+      dataUrl: "Build/{{{ DATA_FILENAME }}}",
+      frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
+#if USE_THREADS
+      workerUrl: "Build/{{{ WORKER_FILENAME }}}",
+#endif
+#if USE_WASM
+      codeUrl: "Build/{{{ CODE_FILENAME }}}",
+#endif
+#if MEMORY_FILENAME
+      memoryUrl: "Build/{{{ MEMORY_FILENAME }}}",
+#endif
+#if SYMBOLS_FILENAME
+      symbolsUrl: "Build/{{{ SYMBOLS_FILENAME }}}",
+#endif
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
+      productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
+      productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
+      showBanner: showMessage,
+    };
+
+    // Right-click, middle-click and wheel belong to the game, not the page.
+    canvas.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+    canvas.addEventListener("mousedown", function () { canvas.focus(); });
+
+    document.getElementById("u2w-fullscreen").addEventListener("click", function () {
+      var root = document.documentElement;
+      var request = root.requestFullscreen || root.webkitRequestFullscreen;
+      if (!request) return;
+      Promise.resolve(request.call(root)).then(function () {
+        // In fullscreen Chromium lets the page own Esc, Ctrl+W, Alt+Tab-like shortcuts, like a desktop game.
+        if (navigator.keyboard && navigator.keyboard.lock) navigator.keyboard.lock().catch(function () {});
+        canvas.focus();
+      });
+    });
+
+    createUnityInstance(canvas, config, function (progress) {
+      document.getElementById("u2w-fill").style.width = Math.round(progress * 100) + "%";
+      document.getElementById("u2w-status").textContent = progress < 0.9 ? "Downloading… " + Math.round(progress * 100) + "%" : "Starting…";
+    }).then(function (instance) {
+      window.unityInstance = instance;
+      document.getElementById("u2w-loading").remove();
+      canvas.focus();
+    }).catch(function (message) {
+      showMessage(String(message), "error");
+    });
+  </script>
+</body>
+</html>

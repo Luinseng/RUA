@@ -1,0 +1,29 @@
+{
+  // Copy to rules.json and pass with:  python u2w.py patch --work <ws> --rules rules.json
+  // Comments and trailing commas are allowed.
+
+  // Native libraries kept as real P/Invoke. "__Internal" = .jslib functions or statically linked web libraries.
+  "allowNative": ["__Internal"],
+
+  // Native libraries you provide a WebAssembly/WebGL build for (drop the .a/.bc into Assets/Plugins/WebGL):
+  // their imports are re-pointed to "__Internal" instead of being stubbed. Example: FMOD's HTML5 libraries.
+  "relinkInternal": [],
+
+  // Constant results for stubbed native calls (everything else returns 0/false/null).
+  "stubReturns": {
+    "SteamAPI_RestartAppIfNecessary": 0
+  },
+
+  // Rewrite groups to turn off: threads, process, folders, paths, urls, pinvoke
+  "disable": [],
+
+  // Thread bodies never to run (as printed by 'scan' under [loop]): workers that loop forever would freeze the tab.
+  "skipThreadBodies": [],
+
+  // Unity reserves Assembly-CSharp* for its own compilation: the game's copies get these names.
+  // Use {} if your AssetRipper export already renamed them.
+  "renameAssemblies": {
+    "Assembly-CSharp": "Game-CSharp",
+    "Assembly-CSharp-firstpass": "Game-CSharp-firstpass"
+  }
+}

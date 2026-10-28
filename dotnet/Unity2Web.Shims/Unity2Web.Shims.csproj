@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Runtime shims that patched game assemblies call instead of APIs the browser cannot provide.
+    Targets net35 on purpose: a net35 assembly loads in every Unity scripting runtime
+    (legacy .NET 3.5 and .NET 4.x / Standard 2.x), so one binary serves every game.
+    It has NO reference to UnityEngine: Unity-side wiring lives in U2WBootstrap.cs inside the project.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net35</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+    <AssemblyName>Unity2Web.Shims</AssemblyName>
+    <RootNamespace>Unity2Web.Shims</RootNamespace>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Deterministic>true</Deterministic>
+    <DebugType>none</DebugType>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+</Project>

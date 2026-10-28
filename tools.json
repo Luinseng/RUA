@@ -1,0 +1,33 @@
+{
+  "_comment": "Pinned third-party tools. The harness downloads each into tools/<name>/<version>/. Bump deliberately: AssetRipper output changes between versions.",
+  "assetripper": {
+    "repo": "AssetRipper/AssetRipper",
+    "tag": "2.0.0",
+    "asset": "AssetRipper_win_x64.zip",
+    "exe": "AssetRipper.GUI.Free.exe",
+    "license": "GPL-3.0"
+  },
+  "cpp2il": {
+    "repo": "SamboyCoding/Cpp2IL",
+    "tag": "2022.1.0-pre-release.21",
+    "asset": "Cpp2IL-2022.1.0-pre-release.21-Windows.exe",
+    "license": "MIT"
+  },
+  "il2cppdumper": {
+    "repo": "Perfare/Il2CppDumper",
+    "tag": "v6.7.46",
+    "asset": "Il2CppDumper-net6-win-v6.7.46.zip",
+    "exe": "Il2CppDumper.exe",
+    "license": "MIT"
+  },
+  "ilspycmd": {
+    "nuget": "ilspycmd",
+    "version": "10.1.1.8388",
+    "license": "MIT"
+  },
+  "ilverify": {
+    "nuget": "dotnet-ilverify",
+    "version": "10.0.14",
+    "license": "MIT"
+  }
+}

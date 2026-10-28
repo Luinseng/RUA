@@ -1,0 +1,5 @@
+{
+  // Test-only override: proves stubReturns reaches the IL. Real games want 0 here (no restart).
+  "stubReturns": { "SteamAPI_RestartAppIfNecessary": 1 },
+  "relinkInternal": [ "fmodstudio" ]
+}

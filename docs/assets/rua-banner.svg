@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="title desc">
+  <title id="title">RUA — Reverse Engineer Unity</title>
+  <desc id="desc">A dark blue banner with an original geometric RUA mark and the workflow inspect, export, patch, build.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071221"/><stop offset="1" stop-color="#162c49"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#61edcf"/><stop offset="1" stop-color="#67a8ff"/></linearGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#8ca5c6" stroke-opacity="0.09"/></pattern>
+  </defs>
+  <rect width="1280" height="420" rx="24" fill="url(#bg)"/>
+  <rect width="1280" height="420" rx="24" fill="url(#grid)"/>
+  <circle cx="1130" cy="80" r="220" fill="#42cbb7" opacity="0.04"/>
+  <path d="M96 142 166 102 236 142V222L166 262 96 222Z" fill="#0d2235" stroke="url(#accent)" stroke-width="5"/>
+  <path d="m96 142 70 40 70-40M166 182v80M129 160v44l37 22M203 160v44l-20 12" fill="none" stroke="url(#accent)" stroke-width="5" stroke-linejoin="round"/>
+  <text x="292" y="154" fill="#65e9d0" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="600" letter-spacing="4">UNITY REVERSE ENGINEERING TOOLKIT</text>
+  <text x="286" y="232" fill="#f2f7ff" font-family="Segoe UI,Arial,sans-serif" font-size="84" font-weight="750" letter-spacing="2">RUA</text>
+  <text x="291" y="278" fill="#b6c8df" font-family="Segoe UI,Arial,sans-serif" font-size="29">Reverse Engineer Unity</text>
+  <path d="M82 320h1116" stroke="#597391" stroke-opacity="0.35"/>
+  <text x="96" y="365" fill="#e8f1ff" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="600" letter-spacing="2">INSPECT</text>
+  <path d="M267 358h45m-8-7 8 7-8 7" fill="none" stroke="#65e9d0" stroke-width="2"/>
+  <text x="370" y="365" fill="#e8f1ff" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="600" letter-spacing="2">EXPORT</text>
+  <path d="M538 358h45m-8-7 8 7-8 7" fill="none" stroke="#65e9d0" stroke-width="2"/>
+  <text x="649" y="365" fill="#e8f1ff" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="600" letter-spacing="2">PATCH</text>
+  <path d="M817 358h45m-8-7 8 7-8 7" fill="none" stroke="#65e9d0" stroke-width="2"/>
+  <text x="932" y="365" fill="#e8f1ff" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="600" letter-spacing="2">BUILD WEBGL</text>
+</svg>

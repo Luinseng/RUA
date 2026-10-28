@@ -1,0 +1,45 @@
+# Downloaded third-party tools and private per-game workspaces.
+/tools/
+/work/
+/.agy-staff/
+
+# .NET build output
+bin/
+obj/
+
+# Python caches and virtual environments
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Unity-generated files; the original test source stays versioned.
+[Ll]ibrary/
+[Tt]emp/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.key
+.vs/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Binary targets, downloaded archives and compiled output are not source.
+*.exe
+*.dll
+*.pdb
+*.so
+*.dylib
+*.apk
+*.aab
+*.zip
+*.7z
+*.log

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+  <title>%UNITY_WEB_NAME%</title>
+  <!-- Template for Unity 5.6 - 2019.4 (UnityLoader). Unity 2020.1+ uses the Unity2Web template. -->
+  <style>
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #000; }
+    #gameContainer { width: 100%; height: 100%; }
+    #gameContainer canvas { width: 100%; height: 100%; display: block; }
+    #u2w-fullscreen { position: fixed; right: 10px; top: 10px; padding: 6px 10px; border: 0; border-radius: 4px; cursor: pointer;
+      font: 12px system-ui, sans-serif; color: #fff; background: rgba(255, 255, 255, .12); opacity: .35; z-index: 10; }
+    #u2w-fullscreen:hover { opacity: 1; }
+  </style>
+  <script src="%UNITY_WEBGL_LOADER_URL%"></script>
+</head>
+<body>
+  <div id="gameContainer"></div>
+  <button id="u2w-fullscreen" title="Fullscreen">⛶</button>
+  <script>
+    var gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%");
+    document.getElementById("gameContainer").addEventListener("contextmenu", function (e) { e.preventDefault(); });
+    document.getElementById("u2w-fullscreen").addEventListener("click", function () {
+      gameInstance.SetFullscreen(1);
+      if (navigator.keyboard && navigator.keyboard.lock) navigator.keyboard.lock().catch(function () {});
+    });
+  </script>
+</body>
+</html>

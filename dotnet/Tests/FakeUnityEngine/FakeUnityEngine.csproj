@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Stand-in for UnityEngine.CoreModule so the patcher's Unity redirects can be tested without Unity. -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>UnityEngine.CoreModule</AssemblyName>
+    <RootNamespace>UnityEngine</RootNamespace>
+  </PropertyGroup>
+
+</Project>
