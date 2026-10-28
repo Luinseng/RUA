@@ -1,6 +1,6 @@
 # Testing and validation
 
-RUA separates source checks, Unity compilation, browser rendering and game behavior. Each answers a different question.
+REU separates source checks, Unity compilation, browser rendering and game behavior. Each answers a different question.
 
 ## Automated suite
 

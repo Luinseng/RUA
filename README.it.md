@@ -2,13 +2,13 @@
 
 [English](README.md) · **Italiano**
 
-# RUA: Reverse Engineer Unity
+# REU: Reverse Engineer Unity
 
 ### Analizza giochi Unity compilati. Recupera asset. Adatta codice managed verso WebGL.
 
-![RUA — Reverse Engineer Unity](docs/assets/rua-banner.svg)
+![REU — Reverse Engineer Unity](docs/assets/reu-banner.svg)
 
-[![Test](https://github.com/Luinseng/RUA/actions/workflows/ci.yml/badge.svg)](https://github.com/Luinseng/RUA/actions/workflows/ci.yml)
+[![Test](https://github.com/Luinseng/REU/actions/workflows/ci.yml/badge.svg)](https://github.com/Luinseng/REU/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.13_testato-3776AB?logo=python&logoColor=white)](#requisiti)
 [![.NET](https://img.shields.io/badge/.NET-10_SDK-512BD4?logo=dotnet&logoColor=white)](#requisiti)
 [![Licenza MIT](https://img.shields.io/badge/licenza-MIT-62CDB2)](LICENSE)
@@ -18,11 +18,11 @@
 
 </div>
 
-RUA è un harness locale sperimentale per analizzare giochi Unity compilati, recuperare una struttura di progetto, studiare gli assembly managed e tentare una build Unity WebGL. Riunisce una CLI Python, strumenti esterni, un patcher IL in .NET e componenti runtime per Unity.
+REU è un harness locale sperimentale per analizzare giochi Unity compilati, recuperare una struttura di progetto, studiare gli assembly managed e tentare una build Unity WebGL. Riunisce una CLI Python, strumenti esterni, un patcher IL in .NET e componenti runtime per Unity.
 
 Per i giochi **Mono**, l'esportazione predefinita conserva gli assembly compilati e adatta alcune API incompatibili con il browser. Per **IL2CPP**, produce dump e materiale di riferimento: la ricostruzione della logica rimane manuale.
 
-Il nome pubblico è **RUA — Reverse Engineer Unity**. I nomi `u2w.py`, `unity2web` e `Unity2Web.*` restano nei comandi e nel codice per compatibilità.
+Il nome pubblico è **REU — Reverse Engineer Unity**. I nomi `u2w.py`, `unity2web` e `Unity2Web.*` restano nei comandi e nel codice per compatibilità.
 
 > [!IMPORTANT]
 > Un progetto esportato o una build riuscita non dimostrano che un gioco sia giocabile o equivalente alla versione desktop. Scene, rendering, input, audio, salvataggi, rete e prestazioni richiedono verifiche separate.
@@ -32,8 +32,8 @@ Il nome pubblico è **RUA — Reverse Engineer Unity**. I nomi `u2w.py`, `unity2
 Clona il repository e controlla l'ambiente:
 
 ```powershell
-git clone https://github.com/Luinseng/RUA.git
-cd RUA
+git clone https://github.com/Luinseng/REU.git
+cd REU
 python u2w.py doctor
 ```
 
@@ -102,7 +102,7 @@ Il risultato è un progetto ricostruito da artefatti compilati. Non è il proget
 | HDRP o versioni Unity meno recenti non supportate | `BLOCKED` | La pipeline attuale non produce direttamente il risultato WebGL richiesto. |
 | Build già WebGL | `ALREADY-WEB` | Il pacchetto si può ispezionare o estrarre. |
 
-RUA offre scansione assembly, patch IL, decompilazione managed di riferimento, dump IL2CPP, helper runtime, builder batch e gestione dei pacchetti WebGL. Il server gestisce MIME type, compressione, range request e COOP/COEP opzionali.
+REU offre scansione assembly, patch IL, decompilazione managed di riferimento, dump IL2CPP, helper runtime, builder batch e gestione dei pacchetti WebGL. Il server gestisce MIME type, compressione, range request e COOP/COEP opzionali.
 
 ### Procedura passo per passo
 
@@ -131,7 +131,7 @@ Dummy DLL, firme e rappresentazioni intermedie IL2CPP non contengono un'implemen
 Un agente con accesso al terminale può usare la CLI. Esempio:
 
 ```text
-Usa RUA per analizzare il mio gioco autorizzato in D:\Games\MioGiocoUnity.
+Usa REU per analizzare il mio gioco autorizzato in D:\Games\MioGiocoUnity.
 Esegui prima detect, spiega le incompatibilità e salva il lavoro in work\mio-gioco.
 Controlla report e patch prima di tentare la build WebGL.
 Distingui compilazione, verifica nel browser e risultati del gameplay.
@@ -179,7 +179,7 @@ work/                      Export, report e build privati esclusi da Git
 ## Domande frequenti
 
 <details>
-<summary><strong>RUA è un emulatore o un remake?</strong></summary>
+<summary><strong>REU è un emulatore o un remake?</strong></summary>
 
 No. Tenta di ricostruire un progetto e usare il compilatore WebGL di Unity. Con Mono riutilizza gli assembly managed quando possibile, applicando adattamenti runtime.
 
@@ -213,12 +213,12 @@ No. Contiene harness, documentazione e piccole fixture originali. Download e car
 - [Ricerca originale e progetti correlati](docs/RICERCA.md)
 - [Contribuire](CONTRIBUTING.md)
 - [Strumenti e dipendenze esterne](THIRD_PARTY_NOTICES.md)
-- [Segnalare un problema](https://github.com/Luinseng/RUA/issues)
+- [Segnalare un problema](https://github.com/Luinseng/REU/issues)
 
-La presentazione si ispira a [REA — Reverse Engineer Anything](https://github.com/morluto/rea). RUA è indipendente, focalizzato su Unity: non include REA e non ne eredita le funzioni.
+La presentazione si ispira a [REA — Reverse Engineer Anything](https://github.com/morluto/rea). REU è indipendente, focalizzato su Unity: non include REA e non ne eredita le funzioni.
 
 ## Licenza e uso autorizzato
 
-Codice e documentazione propri di RUA usano la [licenza MIT](LICENSE). Gli strumenti esterni mantengono i propri termini: consulta [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Codice e documentazione propri di REU usano la [licenza MIT](LICENSE). Gli strumenti esterni mantengono i propri termini: consulta [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-Usa RUA su software che sei autorizzato ad analizzare e adattare. La licenza del tool non concede diritti su codice, asset, middleware o Unity. Distribuisci output derivati dai giochi solo con le necessarie autorizzazioni. Unity è un marchio di Unity Technologies; RUA è indipendente.
+Usa REU su software che sei autorizzato ad analizzare e adattare. La licenza del tool non concede diritti su codice, asset, middleware o Unity. Distribuisci output derivati dai giochi solo con le necessarie autorizzazioni. Unity è un marchio di Unity Technologies; REU è indipendente.

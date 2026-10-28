@@ -1,4 +1,4 @@
-# Contributing to RUA
+# Contributing to REU
 
 Reproducible compatibility findings, focused fixes, clearer documentation and original fixtures are welcome.
 
@@ -17,7 +17,7 @@ Preserve `u2w`, `unity2web`, assembly names and workspace contracts unless expli
 
 ## Report a problem
 
-Open an [issue](https://github.com/Luinseng/RUA/issues) with:
+Open an [issue](https://github.com/Luinseng/REU/issues) with:
 
 - Command, source revision, Python/.NET versions and Unity version.
 - Mono/IL2CPP backend, expected behavior and a short redacted error excerpt.
@@ -32,4 +32,4 @@ Keep changes focused. Explain the resulting behavior and include affected checks
 
 Keep tools, game exports, caches, reports and compiled output outside commits. `tools/` and `work/` are deliberately ignored. Record new dependencies and their terms in [third-party notices](THIRD_PARTY_NOTICES.md).
 
-Submit only material you are authorized to contribute. RUA-authored contributions use the repository MIT License; third-party material keeps its terms.
+Submit only material you are authorized to contribute. REU-authored contributions use the repository MIT License; third-party material keeps its terms.

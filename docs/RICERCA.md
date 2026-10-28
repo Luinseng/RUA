@@ -4,7 +4,7 @@ Aggiornata al 27 ottobre 2026. Versioni e date verificate sulle pagine GitHub/Nu
 ciò che non è stato possibile verificare è marcato **(non verificato)**.
 
 > Nota di pubblicazione, 28 ottobre 2026: questi sono gli appunti storici della ricerca precedente.
-> Versioni, misure esterne e risultati riportati non sono stati riverificati durante la pubblicazione di RUA.
+> Versioni, misure esterne e risultati riportati non sono stati riverificati durante la pubblicazione di REU.
 > La sezione 6 descrive quella sessione, non lo stato corrente dell'ambiente.
 > Per requisiti attuali e verifiche della pubblicazione consulta [README](../README.it.md) e [TESTING.md](TESTING.md).
 
